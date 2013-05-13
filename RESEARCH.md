@@ -27,15 +27,42 @@ There are 2 types of BDD frameworks I have found (and Wiki supports my reasoning
 #### Behavior (Wiki) / Contextual description (Personal)
 This is the nested structure of `describe` and `it` we find in frameworks like RSpec and Mocha.
 
-The argument for this is it is non-restrictive and can go infinite levels of context.
+Pros:
 
-The argument against this is it is easy to lose track of context and methods can become bloated.
+- Non-restrictive language
+- Infinite levels of context
+
+Cons:
+
+- Easy to lose track of context from bloated methods
 
 #### Specification (Wiki) / Behavioral specification (Personal)
-Often in two parts, but not necessarily. These are the ones with a specific format and pattern
+Often in two parts, but not necessarily. These are the ones with a specific language which outlines how things take place.
+
+Thus far, I have not found any split frameworks that don't require a specific language.
+
+Pros:
+
+- Well structured and consistent sentences
+- Sentence units are encapsulated, preventing bloat.
+
+Cons:
+
+- Descriptions limited to framework vocabulary
+- Often need to maintain 2 files
 
 #### TDD
 For TDD, there is 1 format. Functional. There is the optional description, otherwise it will be described by the function name itself. So vanilla here.
+
+Pros:
+
+- Closest to metal for testing specific functions
+- Easy to write a framework for
+
+Cons:
+
+- Difficult to separate what should be covered and not
+- Functions names are not always descriptive of the purpose of the test
 
 ## RSpec
 
@@ -150,3 +177,5 @@ describe("Asynchronous specs", function() {
 
 ## Notes
 We should mention the world before unit testing. e.g. IBM Black Team
+
+We might want to mention assertion libraries/patterns (e.g. error, assert, expect, should, and wish).
