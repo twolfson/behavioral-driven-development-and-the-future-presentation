@@ -10,8 +10,16 @@ Lots of links while performing research on topic
 - Research cucumber's origin
 - Research vows.js' origin
 - Research Gherkin history
+- Research Jasmine
+- Research history before unit testing
 
 # Results
+
+## General
+
+https://en.wikipedia.org/wiki/List_of_unit_testing_frameworks
+
+Wikipedia contains an enxtensive list of frameworks
 
 ## RSpec
 
@@ -19,7 +27,7 @@ https://en.wikipedia.org/wiki/Behavior-driven_development#Story_versus_Specifica
 
 Mocha seems to be based off of RSpec
 
-```
+```ruby
 describe Hash do
   before(:each) do
     @hash = Hash.new(:hello => 'world')
@@ -39,8 +47,9 @@ end
 ## RBehave
 http://dannorth.net/2007/06/17/introducing-rbehave/
 
+Interestingly, this lacks the Gherkin interpretation via RegExp's
 
-```
+```ruby
 Story "transfer to cash account",
 %(As a savings account holder
   I want to transfer money from my savings account
@@ -64,7 +73,18 @@ Story "transfer to cash account",
 end
 ```
 
-Interestingly, this lacks the Gherkin interpretation via RegExp's
+## Expresso
+http://visionmedia.github.io/expresso/
+
+TDD framework with assertion built-ins. Not reprentative of BDD.
+
+```js
+module.exports = {
+    'test String#length': function(beforeExit, assert) {
+      assert.equal(6, 'foobar'.length);
+    }
+};
+```
 
 ## Notes
 We should mention the world before unit testing. e.g. IBM Black Team
