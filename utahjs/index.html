@@ -59,22 +59,36 @@
   Calculator.prototype = {
     add: function (num) {
       this.sum += num;
+      return this;
     },
     total: function () {
       return this.sum;
     }
   };
-
+            </pre><code>
+          </p>
+          <p>
+            <pre><code>
   // Tests
   describe('A calculator', function () {
-    describe('adding 2 and 3', function () {
-      it('returns 5 as the total', function () {
+    beforeEach(function () {
+      this.calc = new Calculator();
+    });
 
+    describe('adding 2 and 3', function () {
+      before(function () {
+        this.calc.add(2).add(3);
+      });
+
+      it('returns 5 as the total', function () {
+        assert.strictEqual(this.calc.total(), 5);
       });
     });
-  });
 
-  describe(
+    it('begins with a total of 0', function () {
+      assert.strictEqual(this.calc.total(), 0);
+    });
+  });
             </code></pre>
           </p>
 
