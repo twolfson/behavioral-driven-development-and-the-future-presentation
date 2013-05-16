@@ -64,6 +64,27 @@ Cons:
 - Difficult to separate what should be covered and not
 - Functions names are not always descriptive of the purpose of the test
 
+### History of testing
+http://en.wikiversity.org/wiki/Software_testing/history_of_testing
+
+A very light Wiki article overviewing history to date.
+
+Highlights Unit, Integration, System, and Acceptance testing for sizings.
+
+Highlights TDD, XP, and BDD as testing methodologies although XP is pointed out to implement TDD and not be a testing architecture itself
+
+### History of JUnit and future of testing with Kent Beck
+http://www.se-radio.net/2010/09/episode-167-the-history-of-junit-and-the-future-of-testing-with-kent-beck/
+
+Podcast with Kent Beck.
+
+Kent Beck wrote original xUnit, originally implemented it in Smalltalk and then converted it to JUnit
+
+### Ten Years of Test Driven Development
+http://c2.com/cgi/wiki?TenYearsOfTestDrivenDevelopment
+
+A very nice breakdown of frameworks and when they emerged
+
 ## RSpec
 
 https://en.wikipedia.org/wiki/Behavior-driven_development#Story_versus_Specification
