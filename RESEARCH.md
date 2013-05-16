@@ -12,13 +12,13 @@ Lots of links while performing research on topic
 - Research Gherkin history
 - Research Jasmine
 - Research history before unit testing
-- Grab a smalltalk example if possible
 - Grab a JUnit example
 - Grab JUnit 1.0 source code if possible
 - Once ready, we should tweet it at Kent Beck ;)
-- Look into nUnit
 - Mention flat files testing (e.g. mustache)
-- Why do we have tests quote?
+- Add in "Why do we have tests" quote? http://jonjagger.blogspot.ie/2011/07/why-do-cars-have-brakes.html
+- Look into Fit-like testing framework
+- Explore http://techblog.daveastels.com/2005/07/05/a-new-look-at-test-driven-development/ blog post
 
 # Results
 
@@ -85,11 +85,11 @@ http://www.se-radio.net/2010/09/episode-167-the-history-of-junit-and-the-future-
 
 Podcast with Kent Beck.
 
-Kent Beck wrote original xUnit, originally implemented it in Smalltalk and then converted it to JUnit
+Kent Beck wrote original SUnit, originally implemented it in Smalltalk and then converted it to JUnit
 
 He experimented with a few things and had an implementation based on workspaces and expressions. At the time, he was a consultant and was asked about testing. He moved things around to make it a classical structure and that is the form we know now.
 
-While living in Zurich, Eric Gammen and Kent Beck were on a plane to OOPSLA. Kent wanted to learn Java and Eric was interested in SUnit. They collaborated and by the end of the plane ride, they had JUnit working.
+While living in Zurich, Erich Gamma and Kent Beck were on a plane to OOPSLA. Kent wanted to learn Java and Erich was interested in SUnit. They collaborated and by the end of the plane ride, they had JUnit working.
 
 He says the final product was quite small.
 
@@ -104,9 +104,28 @@ When Kent Beck went to school, "A" students would be programmers, "B" students w
 ### Ten Years of Test Driven Development
 http://c2.com/cgi/wiki?TenYearsOfTestDrivenDevelopment
 
-A very nice breakdown of frameworks and when they emerged
+A very nice breakdown of frameworks and when they emerged.
 
-TODO: Resume here post-podcast
+1815 - Ada Lovelace runs assertions against her calculator via cross-checking answers
+
+1989 - Ward Cunningham writes Fit-like testing framework and Gary Goldberg writes tests first
+
+1994 - Kent Beck releases SUnit framework
+
+1995 - Kent demos TDD at OopsLa
+
+2000
+- JUnit.org website launched
+- NunitFramework registered on SourceForge
+- JavaUnit (JUnit) registered on SourceForge
+
+2001
+- Nat Pryce creates dynamic mock library in Ruby
+- Eventually ported into Java as jMock
+
+2006 - Dan North writes a blog post about a new approach (BDD) http://techblog.daveastels.com/2005/07/05/a-new-look-at-test-driven-development/
+
+2007 - jBehave (Dan North, Chris Matts), RSpec (Steven Baker, now David Chelimsky), easyb [story dsl in java] are released
 
 ## RSpec
 
