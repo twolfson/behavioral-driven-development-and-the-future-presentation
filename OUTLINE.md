@@ -5,6 +5,10 @@ Topics to cover:
 - Example unit test
   - Consider doing live coding
 
+- Why are tests important?
+  - Don't need to go back and forth to constantly cross-check. Leading to faster development time and larger steps in iterations.
+  - http://jonjagger.blogspot.ie/2011/07/why-do-cars-have-brakes.html
+
 - Separating potential improper abstractions (e.g. Selenium)
   - This is about the matter of how tests are written. Not about when to write tests, how to abstract/DRY them, what are good mocks/stubs/spies.
   - For the record, TDD/BDD does not mean Test/Behavior-first driven development. It means tests help you progress. Too many tests can slow you down especially in early stages.
@@ -35,6 +39,8 @@ Topics to cover:
 
 - TODO: Code sample of Cucumber
 
+- TODO: Look at flat files of mustache which takes on agnosticism
+
 - Nothing really new to date and it has been 6 years. Either things are feature complete or there will be a break through at some point.
 
 - Contemplate: Re-summarize break downs (TDD, Behavior, Specification)
@@ -55,6 +61,8 @@ Topics to cover:
   - casperjs
   - karma
   - testling
+
+- TODO: Contemplate mentioning assertion libraries (e.g. error, assert, expect, should, and wish)
 
 - My experiment: doubleshot
   - Aliasing and re-use of components. Impossible without a classical structure or functional re-use.
