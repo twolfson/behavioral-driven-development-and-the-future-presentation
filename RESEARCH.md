@@ -454,3 +454,70 @@ Given some initial context (the givens),
 When an event occurs,
 then ensure some outcomes.
 ```
+
+## vows
+http://vowsjs.org/
+
+Built with asynchronous parallel testing in mind (and node exclusively). Unfortunately, it gives awesome syntax which I fell in love with.
+
+```js
+{
+  'A banana': {
+      topic: new(Banana),
+
+      'when peeled *synchronously*': {
+          topic: function (banana) {
+              return banana.peelSync();
+          },
+          'returns a `PeeledBanana`': function (result) {
+              assert.instanceOf (result, PeeledBanana);
+          }
+      },
+      'when peeled *asynchronously*': {
+          topic: function (banana) {
+              banana.peel(this.callback);
+          },
+          'results in a `PeeledBanana`': function (err, result) {
+              assert.instanceOf (result, PeeledBanana);
+          }
+      }
+  }
+}
+```
+
+Generates promises/vows if test is incomplete
+
+```js
+A non-promise return value
+  ✓ should be converted to a promise
+A topic not emitting an error
+  ✓ should pass null if the test is expecting an error
+  ✓ should pass the result otherwise
+A topic emitting an error
+  ✓ shouldn't raise an exception if the test expects it
+A context with a nested context
+  ✓ has access to the environment
+  - can make coffee
+A nested context
+  ✓ should have access to the parent topics
+A nested context with no topics
+  ✓ should pass the parent topics down
+
+✓ OK » 7 honored • 1 pending (0.112s)
+```
+
+## mocha
+http://visionmedia.github.io/mocha/
+
+Built with multiple testing interfaces (BDD, TDD), many reporters, and many platforms (node, all browsers)
+
+```js
+describe('User', function(){
+  describe('#save()', function(){
+    it('should save without error', function(done){
+      var user = new User('Luna');
+      user.save(done);
+    });
+  });
+});
+```
