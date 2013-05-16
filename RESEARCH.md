@@ -18,6 +18,7 @@ Lots of links while performing research on topic
 - Once ready, we should tweet it at Kent Beck ;)
 - Look into nUnit
 - Mention flat files testing (e.g. mustache)
+- Why do we have tests quote?
 
 # Results
 
@@ -97,6 +98,8 @@ They gave to Martin Fowler in Atlanta and it took off.
 In one of the JUnit major releases, an architectural changed from classical inheritance to a DSL implementation.
 
 Something about nUnit and James Newkirk?
+
+When Kent Beck went to school, "A" students would be programmers, "B" students would be testers
 
 ### Ten Years of Test Driven Development
 http://c2.com/cgi/wiki?TenYearsOfTestDrivenDevelopment
@@ -214,6 +217,38 @@ describe("Asynchronous specs", function() {
     });
   });
 });
+```
+
+## SUnit
+http://www.xprogramming.com/testfram.htm
+
+Smalltalk testing framework. First one written by Kent Beck and possibly the first testing framework. There is a sweet image for this.
+
+```smalltalk
+Class: SetTestCase
+    superclass: TestCase
+    instance variables: empty full
+
+SetTestCase>>setUp
+    empty := Set new.
+    full := Set
+        with: #abc
+        with: 5
+
+SetTestCase>>testAdd
+    empty add: 5.
+    self should: [empty includes: 5]
+
+SetTestCase>>testRemove
+    full remove: 5.
+    self should: [full includes: #abc].
+    self shouldnt: [full includes: 5]
+
+| suite |
+suite := TestSuite named: 'Set Tests'.
+suite addTestCase: (SetTestCase selector: #testAdd).
+suite addTestCase: (SetTestCase selector: #testRemove).
+^suite
 ```
 
 ## Notes
