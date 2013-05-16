@@ -12,6 +12,12 @@ Lots of links while performing research on topic
 - Research Gherkin history
 - Research Jasmine
 - Research history before unit testing
+- Grab a smalltalk example if possible
+- Grab a JUnit example
+- Grab JUnit 1.0 source code if possible
+- Once ready, we should tweet it at Kent Beck ;)
+- Look into nUnit
+- Mention flat files testing (e.g. mustache)
 
 # Results
 
@@ -80,10 +86,24 @@ Podcast with Kent Beck.
 
 Kent Beck wrote original xUnit, originally implemented it in Smalltalk and then converted it to JUnit
 
+He experimented with a few things and had an implementation based on workspaces and expressions. At the time, he was a consultant and was asked about testing. He moved things around to make it a classical structure and that is the form we know now.
+
+While living in Zurich, Eric Gammen and Kent Beck were on a plane to OOPSLA. Kent wanted to learn Java and Eric was interested in SUnit. They collaborated and by the end of the plane ride, they had JUnit working.
+
+He says the final product was quite small.
+
+They gave to Martin Fowler in Atlanta and it took off.
+
+In one of the JUnit major releases, an architectural changed from classical inheritance to a DSL implementation.
+
+Something about nUnit and James Newkirk?
+
 ### Ten Years of Test Driven Development
 http://c2.com/cgi/wiki?TenYearsOfTestDrivenDevelopment
 
 A very nice breakdown of frameworks and when they emerged
+
+TODO: Resume here post-podcast
 
 ## RSpec
 
