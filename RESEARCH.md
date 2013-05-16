@@ -2,23 +2,20 @@ Lots of links while performing research on topic
 
 # TODOS
 
-- Research Espresso (Mocha's predecessor)
 - Research more Mocha
-- What was the first testing framework, JUnit? Something in C?
-- Was it ever more cost/time efficient to hire QA over writing tests?
-- Was RSpec based off of something?
-- Research cucumber's origin
 - Research vows.js' origin
-- Research Gherkin history
-- Research Jasmine
-- Research history before unit testing
-- Grab a JUnit example
 - Grab JUnit 1.0 source code if possible
 - Once ready, we should tweet it at Kent Beck ;)
-- Mention flat files testing (e.g. mustache)
-- Add in "Why do we have tests" quote? http://jonjagger.blogspot.ie/2011/07/why-do-cars-have-brakes.html
-- Look into Fit-like testing framework
-- Explore http://techblog.daveastels.com/2005/07/05/a-new-look-at-test-driven-development/ blog post
+
+# Paper TODOS
+
+We should mention the world before unit testing. e.g. IBM Black Team
+
+We might want to mention assertion libraries/patterns (e.g. error, assert, expect, should, and wish).
+
+Mention flat files testing (e.g. mustache)
+
+Add in "Why do we have tests" quote? http://jonjagger.blogspot.ie/2011/07/why-do-cars-have-brakes.html
 
 # Results
 
@@ -123,7 +120,10 @@ A very nice breakdown of frameworks and when they emerged.
 - Nat Pryce creates dynamic mock library in Ruby
 - Eventually ported into Java as jMock
 
-2006 - Dan North writes a blog post about a new approach (BDD) http://techblog.daveastels.com/2005/07/05/a-new-look-at-test-driven-development/
+2006
+- Dan North writes a blog post about a new approach (BDD)
+- http://techblog.daveastels.com/2005/07/05/a-new-look-at-test-driven-development/
+- http://dannorth.net/introducing-bdd/
 
 2007 - jBehave (Dan North, Chris Matts), RSpec (Steven Baker, now David Chelimsky), easyb [story dsl in java] are released
 
@@ -131,7 +131,9 @@ A very nice breakdown of frameworks and when they emerged.
 
 https://en.wikipedia.org/wiki/Behavior-driven_development#Story_versus_Specification
 
-Mocha seems to be based off of RSpec
+http://www.rubyinside.com/rspec-10-released-501.html
+
+Mocha seems to be based off of RSpec. RSpec has not changed much since `1.0`.
 
 ```ruby
 describe Hash do
@@ -148,7 +150,6 @@ describe Hash do
   end
 end
 ```
-
 
 ## RBehave
 http://dannorth.net/2007/06/17/introducing-rbehave/
@@ -270,7 +271,183 @@ suite addTestCase: (SetTestCase selector: #testRemove).
 ^suite
 ```
 
-## Notes
-We should mention the world before unit testing. e.g. IBM Black Team
+## JUnit
+### 1.0
+http://www.eg.bucknell.edu/~cs475/F2000-S2001/hyde/JUnit/README.html
 
-We might want to mention assertion libraries/patterns (e.g. error, assert, expect, should, and wish).
+```java
+public class MoneyTest extends TestCase {
+    private Money f12CHF;
+    private Money f14CHF;
+    private Money f28USD;
+
+    protected void setUp() {
+        f12CHF= new Money(12, "CHF");
+        f14CHF= new Money(14, "CHF");
+        f28USD= new Money(28, "USD");
+    }
+}
+
+public void testSimpleAdd() {
+    Money m12CHF= new Money(12, "CHF");
+    Money m14CHF= new Money(14, "CHF");
+    Money expected= new Money(26, "CHF");
+    Money result= m12CHF.add(m14CHF);
+    assert(expected.equals(result));
+}
+
+TestSuite suite= new TestSuite();
+suite.addTest(new MoneyTest("testSimpleAdd"));
+TestResult result= suite.run();
+```
+
+## Fit (Framework for Integrated Test)
+http://en.wikipedia.org/wiki/Framework_for_Integrated_Test
+http://fit.c2.com/
+
+Tool for testing within Excel, Word, and other rich documents
+
+The image on the website shows green/red table cells
+
+## jBehave
+http://jbehave.org/reference/stable/developing-stories.html#mapping
+
+Behold, one of the first BDD frameworks. Integrated with decorators.
+
+```java
+public class TraderSteps { // look, Ma, I'm a POJO!!
+
+    private Stock stock;
+
+    @Given("a stock of symbol $symbol and a threshold of $threshold")
+    public void aStock(String symbol, double threshold) {
+        stock = new Stock(symbol, threshold);
+    }
+
+    @When("the stock is traded at $price")
+    public void theStockIsTradedAt(double price) {
+        stock.tradeAt(price);
+    }
+
+    @Then("the alert status should be $status")
+    public void theAlertStatusShouldBe(String status) {
+        ensureThat(stock.getStatus().name(), equalTo(status));
+    }
+
+}
+```
+
+## easyb
+http://easyb.org/
+
+Another Java BDD implementation. Documentation seems too good to be true.
+
+```java
+given "an invalid zip code", {
+  invalidzipcode = "221o1"
+}
+
+and "given the zipcodevalidator is initialized", {
+  zipvalidate = new ZipCodeValidator()
+}
+
+when "validate is invoked with the invalid zip code", {
+  value = zipvalidate.validate(invalidzipcode)
+}
+
+then "the validator instance should return false", {
+  value.shouldBe false
+}
+```
+
+## History of Cucumber
+http://www.masterthought.net/bdd_cucumber/presentation.html
+
+Written by Aslak Hellesoy
+
+Introduced Gherkin 'Given-When-Then' syntax
+
+## History of Cucumber (2)
+https://github.com/cucumber/cucumber/blob/master/History.md
+
+https://github.com/cucumber/cucumber/tree/v0.1.6
+
+First Gem release in 2008
+
+## Cucumber
+http://en.wikipedia.org/wiki/Cucumber_%28software%29
+
+Specification
+
+```ruby
+Feature: Division
+  In order to avoid silly mistakes
+  Cashiers must be able to calculate a fraction
+
+  Scenario: Regular numbers
+    * I have entered 3 into the calculator
+    * I have entered 2 into the calculator
+    * I press divide
+    * the result should be 1.5 on the screen
+```
+
+Test implementation
+
+```ruby
+Before do
+  @calc = Calculator.new
+end
+
+Given /I have entered (\d+) into the calculator/ do |n|
+  @calc.push n.to_i
+end
+
+When /I press (\w+)/ do |op|
+  @result = @calc.send op
+end
+
+Then /the result should be (.*) on the screen/ do |result|
+  @result.should == result.to_f
+end
+```
+
+## Gherkin
+https://github.com/cucumber/cucumber/wiki/Gherkin
+
+DSL for specifications of BDD tests
+
+Keywords: Feature, Background, Scenario, Scenario Outline
+Ddescriptors: Given, When, Then, And, But
+
+## History of jBehave
+http://dannorth.net/2008/09/08/jbehave-20-is-live/
+
+Dan North started on BDD in 2003
+
+## Moving to plain text helped it take off
+http://lizkeogh.com/2011/06/27/atdd-vs-bdd-and-a-potted-history-of-some-related-stuff/
+
+http://blog.davidchelimsky.net/2007/10/21/story-runner-in-plain-english/
+
+A tale of how plain text specifications strongly increased productivity
+
+## History of BDD
+http://dannorth.net/introducing-bdd/
+
+Dan North writes a blog post in 2006 stating that test method names should be descriptive.
+
+BDD provides a ubiquitous language for analysis. Originally starting from the agile/XP story template:
+
+```
+As a [X]
+I want [Y]
+so that [Z]
+```
+
+and evolving it into scenarios  (what would eventually be Gherkin)
+
+```
+Given some initial context (the givens),
+When an event occurs,
+then ensure some outcomes.
+```
