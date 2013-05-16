@@ -136,6 +136,8 @@ https://en.wikipedia.org/wiki/Behavior-driven_development#Story_versus_Specifica
 
 http://www.rubyinside.com/rspec-10-released-501.html
 
+http://old.rspec.info/
+
 Mocha seems to be based off of RSpec. RSpec has not changed much since `1.0`.
 
 ```ruby
@@ -315,7 +317,7 @@ The image on the website shows green/red table cells
 ## jBehave
 http://jbehave.org/reference/stable/developing-stories.html#mapping
 
-Behold, one of the first BDD frameworks. Integrated with decorators.
+Behold, one of the first BDD frameworks. Currently, integrated with decorators. Got 1.0 version in other section =D
 
 ```java
 public class TraderSteps { // look, Ma, I'm a POJO!!
@@ -453,6 +455,24 @@ and evolving it into scenarios  (what would eventually be Gherkin)
 Given some initial context (the givens),
 When an event occurs,
 then ensure some outcomes.
+```
+
+```java
+public class AccountIsInCredit implements Given {
+    public void setup(World world) {
+        ...
+    }
+}
+public class CardIsValid implements Given {
+    public void setup(World world) {
+        ...
+    }
+}
+public class CustomerRequestsCash implements Event {
+    public void occurIn(World world) {
+        ...
+    }
+}
 ```
 
 ## vows
