@@ -116,19 +116,40 @@
             <h2>100% code coverage is not required</h2>
             <h3>Scenario strikes again</h3>
             <ul>
-              <li>There is no requirement from TDD/BDD that you must write tests first.</lI>
+              <li>Not linked to TDD/BDD either.</li>
               <li>
-                <p>In some situations, test-first is appropriate.</p>
-                <ul><li>e.g. You have solidified the API</li></ul>
+                <p>In some situations, 100% code coverage is appropriate.</p>
+                <ul><li>e.g. Very small API or you have very little fat and guaranteed specification will never change.</li></ul>
               </li>
               <li>
-                <p>In other situations, test-later is appropriate.</p>
-                <ul><li>e.g. You have the idea but not the specifics</li></ul>
+                <p>In other situations, lower coverage is appropriate.</p>
+                <ul><li>e.g. You are in the early stages of development or creating experimental features.</li></ul>
               </li>
-              <li>If you have not tried out the variants, it is a great learning experience.</li>
-              <li>You might also find that writing your tests as a specification is what you need to smooth edges.</li>
+              <li>Once again, try out the variations and learn.</li>
+              <br/>
+              <li>Personal note: In the node.js world, if I begin testing internals, I consider it a smell and abstract those internals into another module.</li>
             </ul>
             <aside class="notes">TODO: This section is kind of bulky</aside>
+          </section>
+          <section>
+            <h2>Implementation vs Methodology</h2>
+            <ul>
+              <li>
+                Once again, TDD/BDD are about a format of tests and using them to move faster.
+              </li>
+              <li>
+                PhantomJS is a testing harness for manipulating a browser.
+              </li>
+              <li>
+                CasperJS is a combination of testing framework (TDD) and harness.
+              </li>
+              <li>
+                Selenium is a combination of testing framework (TDD), runner, and harness.
+              </li>
+              <li>
+                Technically, these CasperJS and Selenium are TDD.
+              </li>
+            </ul>
           </section>
         </section>
 
