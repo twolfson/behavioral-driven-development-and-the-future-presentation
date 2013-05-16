@@ -1,11 +1,14 @@
 Lots of links while performing research on topic
 
-# TODOS
+# TODOs
+
+- Once ready, we should tweet it at Kent Beck ;)
+
+# Faile TODOs
 
 - Research more Mocha
 - Research vows.js' origin
 - Grab JUnit 1.0 source code if possible
-- Once ready, we should tweet it at Kent Beck ;)
 
 # Paper TODOS
 
