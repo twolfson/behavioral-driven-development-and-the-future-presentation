@@ -6,6 +6,10 @@ describe('A calculator', function () {
     this.calc = new Calculator();
   });
 
+  it('begins with a total of 0', function () {
+    assert.strictEqual(this.calc.total(), 0);
+  });
+
   describe('adding 2 and 3', function () {
     before(function () {
       this.calc.add(2).add(3);
@@ -14,9 +18,5 @@ describe('A calculator', function () {
     it('returns 5 as the total', function () {
       assert.strictEqual(this.calc.total(), 5);
     });
-  });
-
-  it('begins with a total of 0', function () {
-    assert.strictEqual(this.calc.total(), 0);
   });
 });
