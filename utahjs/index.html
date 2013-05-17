@@ -459,6 +459,50 @@ Then /the result should be (.*) on the screen/ do |result|
 end
             </code></pre>
           </section>
+          <section>
+            <h2>Flat files (???)</h2>
+            <ul>
+              <li>Tests represented as input/output files</li>
+              <br/>
+              <li>Language agnostic since they require a framework to run with</li>
+              <br/>
+              <li>
+                <p>In the words of substack:</p>
+                <blockquote>
+                  It's the universal interface. Standard in and standard out.
+                </blockquote>
+            </ul>
+            <aside class="notes">
+              I learned about this via @fat's talk from JSConf 2012.
+            </aside>
+          </section>
+          <section>
+            <h2>Flat files (???)</h2>
+            <p>Mustache implements its files this way</p>
+            <pre><code>
+  // Test data
+  {
+    name: "Chris",
+    value: 10000,
+    taxed_value: 6000,
+    in_ca: true
+  }
+            </code></pre>
+            <pre><code>
+  // Mustache template
+  Hello {{name}}
+  You have just won ${{value}}!
+  {{#in_ca}}
+  Well, ${{ taxed_value }}, after taxes.
+  {{/in_ca}}
+            </code></pre>
+            <pre><code>
+  // Expected output
+  Hello Chris
+  You have just won $10000!
+  Well, $6000, after taxes.
+            </code></pre>
+          </section>
         </section>
 
         <section>
