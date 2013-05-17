@@ -4,3 +4,4 @@ https://www.cloudmunch.com/templates/cloudmunchtemplate3/img/junit1.gif
 http://dannorthnet.files.wordpress.com/2012/08/dan-north-portrait-e1344962419273.jpg?w=168&h=210
 http://jbehave.org/images/jbehave-logo.png
 http://imagery.pragprog.com/products/140/achbd_xlargecover.jpg
+http://gabrito.com/wp-content/uploads/2010/10/cucumber-logo.png

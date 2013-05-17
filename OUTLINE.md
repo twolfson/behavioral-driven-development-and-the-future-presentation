@@ -34,7 +34,7 @@ Topics to cover:
 - TODO: Code samples of RSpec
   - Very indiciative of mocha's current state
 
-- TODO: Cucumber released in 2007
+- TODO: Cucumber released in 2008
   - First showing of full split specification from implementation
 
 - TODO: Code sample of Cucumber
