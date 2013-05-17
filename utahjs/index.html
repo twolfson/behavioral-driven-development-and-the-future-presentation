@@ -540,39 +540,92 @@ end
           </section>
           <section>
             <h2>qunit</h2>
-            TODO
+            <pre><code>
+  test( "ok test", function() {
+    ok( true, "true succeeds" );
+    ok( "non-empty", "non-empty string succeeds" );
+    ok( false, "false fails" );
+    ok( 0, "0 fails" );
+    ok( NaN, "NaN fails" );
+    ok( "", "empty string fails" );
+    ok( null, "null fails" );
+    ok( undefined, "undefined fails" );
+  });
+            </code></pre>
           </section>
           <section>
             <h2>nodeunit</h2>
-            TODO
+            <pre><code>
+  module.exports = {
+      setUp: function (callback) {
+          this.foo = 'bar';
+          callback();
+      },
+      tearDown: function (callback) {
+          // clean up
+          callback();
+      },
+      test1: function (test) {
+          test.equals(this.foo, 'bar');
+          test.done();
+      }
+  };
+            </code></pre>
           </section>
           <section>
             <h2>Expresso</h2>
-            TODO
+            <pre><code>
+  module.exports = {
+      'test String#length': function(beforeExit, assert) {
+        assert.equal(6, 'foobar'.length);
+      }
+  };
+            </code></pre>
           </section>
           <section>
             <h2>tape</h2>
-            TODO
+            <pre><code>
+  test('timing test', function (t) {
+      t.plan(2);
+
+      t.equal(typeof Date.now, 'function');
+      var start = Date.now();
+
+      setTimeout(function () {
+          t.equal(Date.now() - start, 100);
+      }, 100);
+  });
+            </code></pre>
           </section>
           <section>
             <h2>Jasmine</h2>
-            TODO
+            <pre><code>
+              TODO
+            </code></pre>
           </section>
           <section>
             <h2>Cucumber.js</h2>
-            TODO
+            <pre><code>
+              TODO
+            </code></pre>
           </section>
           <section>
             <h2>vows</h2>
-            TODO
+            <pre><code>
+              TODO
+            </code></pre>
           </section>
           <section>
             <h2>mocha</h2>
-            TODO
+            <pre><code>
+              TODO
+            </code></pre>
           </section>
           <section>
             <h2>intern</h2>
-            TODO
+            <pre><code>
+              TODO
+            </code></pre>
           </section>
         </section>
 
