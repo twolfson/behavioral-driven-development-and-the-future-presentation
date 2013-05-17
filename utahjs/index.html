@@ -225,6 +225,49 @@
             </code></pre>
             <small>(Sorry about the scrolling)</small>
           </section>
+          <section>
+            <h2>JUnit (1995 - 2000)</h2>
+            <p><img alt="JUnit logo" src="img/junit1.gif"/></p>
+            <ul>
+              <li>In 1995, Kent Beck and Erich Gamma invent JUnit on plane ride to OopsLa.</li>
+              <li>In 2000, junit.org is registered and published to Sourceforge.</li>
+            </ul>
+            <aside class="notes">
+              <p>More backstory</p>
+              <p>Gamma knows Java and Beck wants to learn.</p>
+              <p>Gamma is interested in Beck's work on SUnit.</p>
+              <p>At end of plane ride, they have a functional, self-testing testing library.</p>
+            </aside>
+          </section>
+          <section>
+            <h2>JUnit (1995 - 2000)</h2>
+            <pre><code>
+  public class MoneyTest extends TestCase {
+      private Money f12CHF;
+      private Money f14CHF;
+      private Money f28USD;
+
+      protected void setUp() {
+          f12CHF= new Money(12, "CHF");
+          f14CHF= new Money(14, "CHF");
+          f28USD= new Money(28, "USD");
+      }
+  }
+
+  public void testSimpleAdd() {
+      Money m12CHF= new Money(12, "CHF");
+      Money m14CHF= new Money(14, "CHF");
+      Money expected= new Money(26, "CHF");
+      Money result= m12CHF.add(m14CHF);
+      assert(expected.equals(result));
+  }
+
+  TestSuite suite= new TestSuite();
+  suite.addTest(new MoneyTest("testSimpleAdd"));
+  TestResult result= suite.run();
+            </code></pre>
+            <small>(Sorry about the scrolling)</small>
+          </section>
         </section>
 
         <section>
