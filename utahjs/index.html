@@ -91,46 +91,57 @@
             <h2>TDD/BDD</h2>
             <ul>
               <li>Methodologies for automated verification of expected functionality.</li>
-              <li>Manual testing is <strong>not</strong> automated and therefore is excluded.</li>
-              <li>The differences between these two is the format of the tests (e.g. JSON, YAML, XML).</li>
+              <li>Manual testing is <strong>not</strong> automated and therefore cannot be considered TDD/BDD.</li>
+              <li>Differences are in the format (e.g. JSON, YAML, XML).</li>
             </ul>
           </section>
           <section>
             <h2>Test-first vs test-later approach</h2>
             <h3>It's all about the situation</h3>
             <ul>
-              <li>There is no requirement from TDD/BDD that you must write tests first.</lI>
+              <li>Neither TDD nor BDD state that tests must be written first.</lI>
+              <br/>
               <li>
                 <p>In some situations, test-first is appropriate.</p>
                 <ul><li>e.g. You have solidified the API</li></ul>
               </li>
+              <br/>
               <li>
                 <p>In other situations, test-later is appropriate.</p>
                 <ul><li>e.g. You have the idea but not the specifics</li></ul>
               </li>
-              <li>If you have not tried out the variants, it is a great learning experience.</li>
-              <li>You might also find that writing your tests as a specification is what you need to smooth edges.</li>
             </ul>
-            <aside class="notes">TODO: This section is kind of bulky</aside>
+            <aside class="notes">
+              <p>If you have not tried out the variants, it is a great learning experience.</p>
+              <p>You might also find that writing your tests as a specification is what you need to smooth edges.</p>
+            </aside>
           </section>
           <section>
             <h2>100% code coverage is not required</h2>
             <h3>Scenario strikes again</h3>
             <ul>
-              <li>Not linked to TDD/BDD either.</li>
+              <li>Code coverage has very little to do with TDD/BDD.</li>
+              <br/>
               <li>
                 <p>In some situations, 100% code coverage is appropriate.</p>
-                <ul><li>e.g. Very small API or you have very little fat and guaranteed specification will never change.</li></ul>
+                <ul>
+                    <li>e.g. You have very little fat</li>
+                    <li>OR guaranteed specification will never change.</li>
+                </ul>
               </li>
+              <br/>
               <li>
                 <p>In other situations, lower coverage is appropriate.</p>
-                <ul><li>e.g. You are in the early stages of development or creating experimental features.</li></ul>
+                <ul>
+                  <li>e.g. You are in the early stages of development</li>
+                  <li>OR creating experimental features.</li>
+                </ul>
               </li>
-              <li>Once again, try out the variations and learn.</li>
-              <br/>
-              <li>Personal note: In the node.js world, if I begin testing internals, I consider it a smell and abstract those internals into another module.</li>
             </ul>
-            <aside class="notes">TODO: This section is kind of bulky</aside>
+            <aside class="notes">
+              <p>Once again, try out the variations and learn.</p>
+              <p>Personal note: In the node.js world, if I begin testing internals, I consider it a smell and abstract those internals into another module.</p>
+            </aside>
           </section>
           <section>
             <h2>Implementation vs Methodology</h2>
