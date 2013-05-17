@@ -311,20 +311,16 @@
             <h2>Dan North (2006)</h2>
             <p><img alt="Dan North" src="img/dan-north-portrait-e1344962419273.jpg"/></p>
             <p> Wants to convert agile story template into scenarios<p>
-            <div>
-              <blockquote>
-                <p>As a [X]</p>
-                <p>I want [Y]</p>
-                <p>so that [Z]</p>
-              </blockquote>
-            </div>
-            <div>
-              <blockquote>
-                <p>Given some initial context,</p>
-                <p>When an event occurs,</p>
-                <p>then ensure some outcomes.</p>
-              </blockquote>
-            </div>
+            <blockquote>
+              <p>As a [X]</p>
+              <p>I want [Y]</p>
+              <p>so that [Z]</p>
+            </blockquote>
+            <blockquote>
+              <p>Given some initial context,</p>
+              <p>When an event occurs,</p>
+              <p>then ensure some outcomes.</p>
+            </blockquote>
 
             <aside class="notes">
               For the record, things were happening between 2000 and 2006. Lots of books were being published and TDD was becoming more and more known.
@@ -333,6 +329,19 @@
           <section>
             <h2>Dan North (2006)</h2>
             <p>Inside of blog posts, already outlining features and benefits. Even has the name BDD already.</p>
+            <blockquote style="text-align: left; font-style: none;">
+              <p><em>Given</em> the account is in credit</p>
+              <p><em>And</em> the card is valid</p>
+              <p><em>And</em> the dispenser contains cash</p>
+              <p><em>When</em> the customer requests cash</p>
+              <p><em>Then</em> ensure the account is debited</p>
+              <p><em>And</em> ensure cash is dispensed</p>
+              <p><em>And</em> ensure the card is returned</p>
+            </blockquote>
+          </section>
+          <section>
+            <h2>Dan North (2006)</h2>
+            <p>Converted story template looks like</p>
             <pre><code>
   public class AccountIsInCredit implements Given {
       public void setup(World world) {
