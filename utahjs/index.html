@@ -688,19 +688,129 @@ end
           <section>
             <h2>vows</h2>
             <pre><code>
-              TODO
+  vows.describe('The Good Things').addBatch({
+      'A banana': {
+          topic: new(Banana),
+
+          'when peeled *synchronously*': {
+              topic: function (banana) {
+                  return banana.peelSync();
+              },
+              'returns a `PeeledBanana`': function (result) {
+                  assert.instanceOf (result, PeeledBanana);
+              }
+          },
+          'when peeled *asynchronously*': {
+              topic: function (banana) {
+                  banana.peel(this.callback);
+              },
+              'results in a `PeeledBanana`': function (err, result) {
+                  assert.instanceOf (result, PeeledBanana);
+              }
+          }
+      }
+  }).export(module); // Export the Suite
             </code></pre>
           </section>
           <section>
             <h2>mocha</h2>
             <pre><code>
-              TODO
+    describe('Array', function(){
+      before(function(){
+        // ...
+      });
+
+      describe('#indexOf()', function(){
+        it('should return -1 when not present', function(){
+          [1,2,3].indexOf(4).should.equal(-1);
+        });
+      });
+    });
+            </code></pre>
+            <pre><code>
+  suite('Array', function(){
+    setup(function(){
+      // ...
+    });
+
+    suite('#indexOf()', function(){
+      test('should return -1 when not present', function(){
+        assert.equal(-1, [1,2,3].indexOf(4));
+      });
+    });
+  });
             </code></pre>
           </section>
           <section>
             <h2>intern</h2>
             <pre><code>
-              TODO
+define([
+  'intern!bdd',
+  'intern/chai!expect',
+  '../Request'
+], function (bdd, expect, Request) {
+  with (bdd) {
+    describe('demo', function () {
+      var request,
+        url = 'https://github.com/theintern/intern';
+
+      // before the suite starts
+      before(function () {
+        request = new Request();
+      });
+
+      // before each test executes
+      beforeEach(function () {
+        request.reset();
+      });
+
+      // after the suite is done
+      after(function () {
+        request.cleanup();
+      });
+
+      // multiple methods can be registered and will be executed in order of registration
+      after(function () {
+        if (!request.cleaned) {
+          throw new Error('Request should have been cleaned up after suite execution.');
+        }
+
+        // these methods can be made asynchronous as well by returning a promise
+      });
+
+      // asynchronous test for Promises/A-based interfaces
+      it('should demonstrate a Promises/A-based asynchronous test', function () {
+        // `getUrl` returns a promise
+        return request.getUrl(url).then(function (result) {
+          expect(result.url).to.equal(url);
+          expect(result.data.indexOf('next-generation') > -1).to.be.true;
+        });
+      });
+
+      // asynchronous test for callback-based interfaces
+      it('should demonstrate a callback-based asynchronous test', function () {
+        // test will time out after 1 second
+        var dfd = this.async(1000);
+
+        // dfd.callback resolves the promise as long as no errors are thrown from within the callback function
+        request.getUrlCallback(url, dfd.callback(function () {
+          expect(result.url).to.equal(url);
+          expect(result.data.indexOf('next-generation') > -1).to.be.true;
+        });
+
+        // no need to return the promise; calling `async` makes the test async
+      });
+
+      // nested suites work too
+      describe('xhr', function () {
+        // synchronous test
+        it('should run a synchronous test', function () {
+          expect(request.xhr).to.exist;
+        });
+      });
+    });
+  }
+});
             </code></pre>
           </section>
         </section>
