@@ -392,6 +392,32 @@
   }
             </code></pre>
           </section>
+          <section>
+            <h2>RSpec (2006)</h2>
+            <p><img alt="RSpec book image" src="img/achbd_xlargecover.jpg"/></p>
+            <ul>
+              <li>Published by Steven Baker</li>
+            </ul>
+          </section>
+          <section>
+            <h2>RSpec (2006)</h2>
+            <p>Very indicative of current mocha implementation</p>
+            <pre><code>
+  describe Hash do
+    before(:each) do
+      @hash = Hash.new(:hello => 'world')
+    end
+
+    it "should return a blank instance" do
+      Hash.new.should eql({})
+    end
+
+    it "should hash the correct information in a key" do
+      @hash[:hello].should eql('world')
+    end
+  end
+            </code></pre>
+          </section>
         </section>
 
         <section>
