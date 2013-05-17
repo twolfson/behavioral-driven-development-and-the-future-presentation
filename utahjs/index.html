@@ -269,7 +269,7 @@
             <small>(Sorry about the scrolling)</small>
           </section>
           <section>
-            <h2>Modern JUnit</h2>
+            <h2>Modern JUnit (circa 2012)</h2>
             <pre><code>
   public class MyClassTest {
 
@@ -297,7 +297,91 @@
             </code></pre>
             <aside class="notes">
               For those of you reading at home, <a href="http://www.vogella.com/articles/JUnit/article.html">http://www.vogella.com/articles/JUnit/article.html</a>
+
+              TODO: Might want to relocate this to a summary section
             </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Evolution into BDD</h2>
+          </section>
+          <section>
+            <h2>Dan North (2006)</h2>
+            <p><img alt="Dan North" src="img/dan-north-portrait-e1344962419273.jpg"/></p>
+            <p> Wants to convert agile story template into scenarios<p>
+            <div>
+              <blockquote>
+                <p>As a [X]</p>
+                <p>I want [Y]</p>
+                <p>so that [Z]</p>
+              </blockquote>
+            </div>
+            <div>
+              <blockquote>
+                <p>Given some initial context,</p>
+                <p>When an event occurs,</p>
+                <p>then ensure some outcomes.</p>
+              </blockquote>
+            </div>
+
+            <aside class="notes">
+              For the record, things were happening between 2000 and 2006. Lots of books were being published and TDD was becoming more and more known.
+            </aside>
+          </section>
+          <section>
+            <h2>Dan North (2006)</h2>
+            <p>Inside of blog posts, already outlining features and benefits. Even has the name BDD already.</p>
+            <pre><code>
+  public class AccountIsInCredit implements Given {
+      public void setup(World world) {
+          ...
+      }
+  }
+  public class CardIsValid implements Given {
+      public void setup(World world) {
+          ...
+      }
+  }
+  public class CustomerRequestsCash implements Event {
+      public void occurIn(World world) {
+          ...
+      }
+  }
+            </code></pre>
+          </section>
+          <section>
+            <h2>jBehave (2006)</h2>
+            <p><img alt="jBehave logo" src="img/jbehave-logo.png"/></p>
+            <ul>
+              <li>Published by Dan North and Chris Matts</li>
+            </ul>
+          </section>
+          <section>
+            <h2>jBehave (2006)</h2>
+            <pre><code>
+  public class TraderSteps {
+
+      private Stock stock;
+
+      @Given("a stock of symbol $symbol and a threshold of $threshold")
+      public void aStock(String symbol, double threshold) {
+          stock = new Stock(symbol, threshold);
+      }
+
+      @When("the stock is traded at $price")
+      public void theStockIsTradedAt(double price) {
+          stock.tradeAt(price);
+      }
+
+      @Then("the alert status should be $status")
+      public void theAlertStatusShouldBe(String status) {
+          ensureThat(stock.getStatus().name(), equalTo(status));
+      }
+
+  }
+            </code></pre>
           </section>
         </section>
 
