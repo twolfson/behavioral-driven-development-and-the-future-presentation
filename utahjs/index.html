@@ -187,12 +187,44 @@
             <h2>Birth of TDD</h2>
           </section>
           <section>
-            <h2>SUnit</h2>
-            <p><img alt="TODO: Kent Beck photo"/></p>
+            <h2>SUnit (1994)</h2>
+            <p><img alt="Kent Beck" src="img/xq10bqclqpsezgerjxhi.jpeg"/></p>
             <ul>
-              <li>Kent Beck working in Smalltalk</li>
-              <li>Have people poke at program until it breaks</li>
+              <li>Kent Beck working mainly in Smalltalk.</li>
+              <li>Tried out a few experiments and not quite settled.</li>
+              <li>On a consulting gig, converted latest &ldquo;workspace&rdquo; concept into classical concept.</li>
             </ul>
+          </section>
+          <section>
+            <h2>SUnit (1994)</h2>
+            <pre><code>
+  Class: SetTestCase
+      superclass: TestCase
+      instance variables: empty full
+
+  SetTestCase>>setUp
+      empty := Set new.
+      full := Set
+          with: #abc
+          with: 5
+
+  SetTestCase>>testAdd
+      empty add: 5.
+      self should: [empty includes: 5]
+
+  SetTestCase>>testRemove
+      full remove: 5.
+      self should: [full includes: #abc].
+      self shouldnt: [full includes: 5]
+
+  | suite |
+  suite := TestSuite named: 'Set Tests'.
+  suite addTestCase: (SetTestCase selector: #testAdd).
+  suite addTestCase: (SetTestCase selector: #testRemove).
+  ^suite
+            </code></pre>
+            <small>(Sorry about the scrolling)</small>
+          </section>
         </section>
 
         <section>
