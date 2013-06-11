@@ -477,7 +477,6 @@ end
           </section>
           <section>
             <h2>Flat files (???)</h2>
-            <p>Mustache implements its files this way</p>
             <pre><code>
   // Test data
   {
@@ -502,36 +501,6 @@ end
   Well, $6000, after taxes.
             </code></pre>
           </section>
-        </section>
-
-        <section>
-          <h2>Review + Break</h2>
-          <p>There are 4 common formats for tests<p>
-          <ul>
-            <li>TDD - Functional 1:1 testing of features</li>
-            <li>
-              <p>BDD (Specification / Joint)</p>
-              <ul>
-                <li>Uses keywords Given, When, Then.</li>
-                <li>1:1 testing per features.</li>
-              </ul>
-            </li>
-            <li>
-              <p>BDD (Behavioral)</p>
-              <ul>
-                <li>Keywords used are describe and it.</li>
-                <li>Context nesting allows double-duty for methods.</li>
-              </ul>
-            </li>
-            <li>
-              <p>BDD (Specification / Separated)</p>
-              <ul>
-                <li>Creates 2 files (a story, an implementation).</li>
-                <li>Keywords are Given, When, Then.</li>
-                <li>Re-use of methods across tests.</li>
-              </ul>
-            </li>
-          </ul>
         </section>
 
         <section>
@@ -631,7 +600,6 @@ end
           </section>
           <section>
             <h2>Jasmine</h2>
-            <p>Good for synchronous. Horrible for asynchronous.</p>
             <pre><code>
   describe("A suite is just a function", function() {
     var a;
@@ -719,7 +687,6 @@ end
           </section>
           <section>
             <h2>vows</h2>
-            <p>Designed for async/parallel tests in node.</p>
             <pre><code>
   vows.describe('The Good Things').addBatch({
       'A banana': {
@@ -761,17 +728,17 @@ end
     });
             </code></pre>
             <pre><code>
-  suite('Array', function(){
-    setup(function(){
-      // ...
-    });
-
-    suite('#indexOf()', function(){
-      test('should return -1 when not present', function(){
-        assert.equal(-1, [1,2,3].indexOf(4));
+    describe('User', function(){
+      describe('#save()', function(){
+        it('should save without error', function(done){
+          var user = new User('Luna');
+          user.save(function(err){
+            if (err) throw err;
+            done();
+          });
+        });
       });
     });
-  });
             </code></pre>
           </section>
           <section>
@@ -857,29 +824,84 @@ define([
           </section>
           <section>
             <h2>doubleshot (2013)</h2>
-            <ul>
-              <li>Wanted slimmer tests and at-a-glance specifications.</li>
-              <li>Loved vows syntax.</li>
-              <li>Tried out a few things for cross-compiling vows into mocha but they failed (crossbones, sculptor).</li>
-              <li>Discovered cool features upon writing it.</li>
+            <h3 style="text-align: left;">Wants:</h3>
+            <ul style="display: block;">
+              <li>Slimmer tests</li>
+              <li>Vows-like syntax</li>
+              <li>Cross-environment</li>
+            </ul>
+            <br/>
+            <h3 style="text-align: left;">Road:</h3>
+            <ul style="display: block;">
+              <li>
+                <p>Wrote cross-compilers from vows to mocha</p>
+                <ul>
+                  <li>crossbones (runtime)</li>
+                  <li>sculptor (preprocessor)</li>
+                </ul>
+              </li>
+              <li>Discovered cool features</li>
             </ul>
           </section>
           <section>
             <h2>doubleshot (2013)</h2>
-            <h3>Live code example</h3>
+            <pre><code>function Calculator() {
+  this.sum = 0;
+}
+
+Calculator.prototype = {
+  add: function (num) {
+    this.sum += num;
+    return this;
+  },
+  total: function () {
+    return this.sum;
+  }
+};
+
+module.exports = Calculator;</code></pre>
           </section>
+          <section>
+            <h2>doubleshot (2013)</h2>
+            <pre><code>module.exports = {
+  'A calculator': {
+    'begins with a total of 0': true,
+    'adding 2 and 3': {
+      'returns 5 as the total': true
+    }
+  }
+};</code></pre>
+            <pre><code>module.exports = {
+  'A calculator': function () {
+    this.calc = new Calculator();
+  },
+  'begins with a total of 0': function () {
+    assert.strictEqual(this.calc.total(), 0);
+  },
+  'adding 2 and 3': ['add 2', 'add 3'],
+  'add 2': function () {
+    this.calc.add(2);
+  },
+  'add 3': function () {
+    this.calc.add(3);
+  },
+  'returns 5 as the total': function () {
+    assert.strictEqual(this.calc.total(), 5);
+  }
+};</code></pre>
+          </section>
+          <section>
+            <h2>BDD Example</h2>
+            <p><img alt="Successful doubleshot tests with nyan reporter" src="img/nyan_doubleshot.png"/></p>
+          </section>
+
         </section>
 
         <section>
-          <h1>Behavioral driven development and the future</h1>
-          <h3>The evolution of Automated Testing</h3>
+          <h1>The Evolution of Behavioral Driven Development</h1>
           <p>
             <small>Created by <a href="http://twolfson.com/">Todd Wolfson</a> / <a href="http://twitter.com/twolfsn">@twolfsn</a> / <a href="http://github.com/twolfson">github/twolfson</a></small>
           </p>
-          <p>
-            <small><a href="http://wolfsn.com/utahjs.html">http://wolfsn.com/utahjs.html</a></small>
-<!--             <small><a href="http://twolfson.github.io/behavioral-driven-development-and-the-future-presentation/utahjs/index.html">http://twolfson.github.io/behavioral-driven-development-and-the-future-presentation/utahjs/index.html</a></small>
- -->          </p>
           <aside class="notes">
             <p>Lastly, don't forget why cars have brakes.</p>
             <p>Thank you.</p>
