@@ -327,39 +327,6 @@ describe('A calculator', function () {
             <aside class="notes">
               For the record, things were happening between 2000 and 2006. Lots of books were being published and TDD was becoming more and more known.
             </aside>
-
-          </section>
-          <section>
-            <h2>Dan North (2006)</h2>
-            <p>Outlining features and benefits in blog posts.</p>
-            <p>Even has the name BDD already.</p>
-            <blockquote style="text-align: left; font-style: none;">
-              <p><em>Given</em> the account is in credit</p>
-              <p><em>And</em> the card is valid</p>
-              <p><em>When</em> the customer requests cash</p>
-              <p><em>Then</em> ensure the account is debited</p>
-            </blockquote>
-          </section>
-          <section>
-            <h2>Dan North (2006)</h2>
-            <p>Converted story template looks like</p>
-            <pre><code>
-  public class AccountIsInCredit implements Given {
-      public void setup(World world) {
-          ...
-      }
-  }
-  public class CardIsValid implements Given {
-      public void setup(World world) {
-          ...
-      }
-  }
-  public class CustomerRequestsCash implements Event {
-      public void occurIn(World world) {
-          ...
-      }
-  }
-            </code></pre>
           </section>
           <section>
             <h2>jBehave (2006)</h2>
