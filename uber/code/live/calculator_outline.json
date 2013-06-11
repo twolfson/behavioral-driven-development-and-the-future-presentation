@@ -1,0 +1,8 @@
+{
+  "A calculator": {
+    "has a total of 0": true,
+    "adding 2 and 3": {
+      "has a total of 5": true
+    }
+  }
+}

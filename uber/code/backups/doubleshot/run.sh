@@ -1,0 +1,1 @@
+doubleshot --outline *_outline.js --content *_content.js
