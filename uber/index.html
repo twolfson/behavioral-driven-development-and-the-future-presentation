@@ -125,57 +125,39 @@ describe('A calculator', function () {
             <h3>Time to unlearn misconceptions</h3>
           </section>
           <section>
-            <h2>TDD/BDD</h2>
+            <h2>What are TDD and BDD?</h2>
             <ul>
-              <li>Methodologies for automated verification of expected functionality.</li>
-              <li>Manual testing is <strong>not</strong> automated and therefore cannot be considered TDD/BDD.</li>
-              <li>Differences are in the format (e.g. JSON, YAML, XML).</li>
+              <li>Automated verification</li>
+              <li>Differences lie in format (e.g. JSON vs XML)</li>
             </ul>
           </section>
           <section>
-            <h2>Test-first vs test-later approach</h2>
-            <h3>It's all about the situation</h3>
+            <h2>Test-first vs test-later</h2>
             <ul>
-              <li>Neither TDD nor BDD state that tests must be written first.</lI>
+              <li>Unrelated to TDD and BDD</lI>
               <br/>
-              <li>
-                <p>In some situations, test-first is appropriate.</p>
-                <ul><li>e.g. You have solidified the API</li></ul>
-              </li>
+              <li>In some situations, test-first is appropriate</li>
               <br/>
-              <li>
-                <p>In other situations, test-later is appropriate.</p>
-                <ul><li>e.g. You have the idea but not the specifics</li></ul>
-              </li>
+              <li>In others, test-later is appropriate</li>
             </ul>
             <aside class="notes">
+              <p>Test-first: API is solidified</p>
+              <p>Test-later: Idea exists but not the specifics</p>
               <p>If you have not tried out the variants, it is a great learning experience.</p>
               <p>You might also find that writing your tests as a specification is what you need to smooth edges.</p>
             </aside>
           </section>
           <section>
-            <h2>100% code coverage is not required</h2>
-            <h3>Scenario strikes again</h3>
+            <h2>Code coverage</h2>
             <ul>
-              <li>Code coverage has very little to do with TDD/BDD.</li>
-              <br/>
-              <li>
-                <p>In some situations, 100% code coverage is appropriate.</p>
-                <ul>
-                    <li>e.g. You have very little fat</li>
-                    <li>OR guaranteed specification will never change.</li>
-                </ul>
-              </li>
-              <br/>
-              <li>
-                <p>In other situations, lower coverage is appropriate.</p>
-                <ul>
-                  <li>e.g. You are in the early stages of development</li>
-                  <li>OR creating experimental features.</li>
-                </ul>
-              </li>
+              <li>Code coverage = % code is touched during testing</li>
+              <li>In some cases, 100% is good to have</li>
+              <li>In other situations, lower coverage is appropriate</li>
             </ul>
             <aside class="notes">
+              <p>100%: Very little fat OR guaranteed specification will never change.
+              </p>
+              <p>Non-100%: Early stages of development OR creating experimental features.</p>
               <p>To bring this back to the brakes analogy, if it takes you longer to build the brakes than iterate on the car, then it might not be worth it. Especially if you are going to throw away the brakes in a bit for a re-factor.
               <p>Once again, try out the variations and learn.</p>
               <p>Personal note: In the node.js world, if I begin testing internals, I consider it a smell and abstract those internals into another module.</p>
@@ -185,7 +167,7 @@ describe('A calculator', function () {
             <h2>Implementation vs Methodology</h2>
             <ul>
               <li>
-                Once again, TDD/BDD are about a format of tests and using them to move faster.
+                Once again, TDD/BDD are formats of tests.
               </li>
               <br/>
               <li>
